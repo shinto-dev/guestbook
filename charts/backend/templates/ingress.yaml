@@ -9,5 +9,5 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: {{ .Release.Name }}-{{ .Chart.Name }}
-              servicePort: {{ .Values.service.port }}
+              serviceName: backend
+              servicePort: 80

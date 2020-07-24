@@ -19,3 +19,4 @@ secret:
 
 ingress:
   host: backend.minikube.local
+  enabled: true

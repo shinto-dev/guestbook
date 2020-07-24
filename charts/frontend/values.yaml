@@ -13,3 +13,4 @@ service:
 
 ingress:
   host: frontend.minikube.local
+  enabled: true

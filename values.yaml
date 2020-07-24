@@ -3,3 +3,15 @@ backend:
     mongodb_uri:
       username: admin
       password: password
+  ingress:
+    enabled: false
+frontend:
+  ingress:
+    enabled: false
+
+ingress:
+  hosts:
+    - domain: frontend.minikube.local
+      chart: frontend
+    - domain: backend.minikube.local
+      chart: backend

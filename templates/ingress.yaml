@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name}}-{{ .Chart.Name }}-ingress
+spec:
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ $.Release.Name}}-{{ .domain }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{$.Release.Name}}-{{.chart}}
+              servicePort: 80
+  {{- end }}
+
+
+{{/*  helm install dev .*/}}
+{{/*  helm install test .*/}}
+
+

@@ -1,13 +1,28 @@
 backend:
   secret:
     mongodb_uri:
-      username: admin
+      username: root
       password: password
+      dbchart: mongodb-headless
+      dbconn: "guestbook?authSource=admin&replicaSet=rs0"
   ingress:
     enabled: false
 frontend:
   ingress:
     enabled: false
+
+mongodb:
+  architecture: replicaset
+  enabled: true
+  replicaCount: 2
+  auth:
+    rootPassword: password
+    replicaSetKey: password
+  persistence:
+    size: 100Mi
+
+tags:
+  api: true
 
 ingress:
   hosts:

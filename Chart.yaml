@@ -1,6 +1,13 @@
 apiVersion: v2
-version: 1.0.0
+version: 1.0.1
 name: guestbook
 appVersion: "2.0.0"
 description: Helm chart for Guestbook 2.0.0
 type: application
+dependencies:
+  - name: mongodb
+    version: 8.1.x
+    repository: https://charts.bitnami.com/bitnami
+    condition: mongodb.enabled
+    tags:
+      - api
